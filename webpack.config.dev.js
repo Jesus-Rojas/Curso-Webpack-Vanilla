@@ -5,7 +5,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -14,6 +13,8 @@ module.exports = {
     filename: '[name][contenthash].js',
     assetModuleFilename: 'assets/chunks/[hash][ext][query]'
   },
+  mode: 'development',
+  // watch: true, // lo estoy usando desde package.json
   resolve: {
     extensions: ['.js'],
     alias: {
@@ -75,7 +76,6 @@ module.exports = {
       filename: 'assets/css/[name].[contenthash].css'
     }),
     new Dotenv(),
-    new CleanWebpackPlugin(),
     // copiar carpeta y archivos no es necesario en este proyecto
     /* new CopyPlugin({
       patterns: [
