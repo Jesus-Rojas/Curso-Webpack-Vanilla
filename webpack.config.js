@@ -5,14 +5,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js',
-    assetModuleFilename: 'assets/chunks/[hash][ext][query]'
+    assetModuleFilename: 'assets/chunks/[hash][ext][query]',
+    clean: true,
   },
   resolve: {
     extensions: ['.js'],
@@ -75,7 +76,7 @@ module.exports = {
       filename: 'assets/css/[name].[contenthash].css'
     }),
     new Dotenv(),
-    new CleanWebpackPlugin(),
+    // new CleanWebpackPlugin(), // No es necesario webpack ya trae su limpiador
     // copiar carpeta y archivos no es necesario en este proyecto
     /* new CopyPlugin({
       patterns: [
