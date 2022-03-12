@@ -8,8 +8,8 @@
     "dev": "webpack --config webpack.config.dev.js",
     "watch": "npm run dev --watch",
     "start": "webpack serve --config webpack.config.dev.js",
-    "build": "node ./scripts/create-env.js && webpack --mode production --config webpack.config.js",
-    "custom": "webpack --mode production --config webpack.config.js"
+    "build": "node ./scripts/create-env.js && npm run custom",
+    "custom": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",

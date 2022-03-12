@@ -15,6 +15,7 @@ module.exports = {
     assetModuleFilename: 'assets/chunks/[hash][ext][query]',
     clean: true,
   },
+  mode: 'production',
   resolve: {
     extensions: ['.js'],
     alias: {
